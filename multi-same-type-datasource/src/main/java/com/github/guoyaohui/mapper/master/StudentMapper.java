@@ -2,6 +2,7 @@ package com.github.guoyaohui.mapper.master;
 
 import com.github.guoyaohui.domain.entity.master.Student;
 import com.github.guoyaohui.domain.enums.master.SexStatus;
+import java.util.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -16,6 +17,8 @@ public interface StudentMapper {
     Student selectByIdAndName(@Param("id") Integer id, @Param("name") String name);
 
     Student selectByIdAndSex(@Param("id") Integer id, @Param("sex") SexStatus sex);
+
+    Student selectByIdAndTime(@Param("id") Integer id, @Param("oneDay") Date oneDay, @Param("twoDay") Date twoDay, @Param("thirdDay") Date thirdDay);
 
     int update(@Param("id") Integer id, @Param("name") String name);
 

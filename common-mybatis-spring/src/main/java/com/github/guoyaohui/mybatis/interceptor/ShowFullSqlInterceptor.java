@@ -1,6 +1,8 @@
 package com.github.guoyaohui.mybatis.interceptor;
 
+import com.github.guoyaohui.common.DateFormatUtil;
 import com.github.guoyaohui.mybatis.handler.IEnum;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
@@ -18,7 +20,6 @@ import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
-import org.apache.ibatis.type.TypeHandlerRegistry;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
@@ -55,21 +56,15 @@ public class ShowFullSqlInterceptor implements Interceptor {
         String baseSql = boundSql.getSql();
 
         if (!CollectionUtils.isEmpty(parameterMappings) && parameterObject != null) {
-            TypeHandlerRegistry typeHandlerRegistry = configuration.getTypeHandlerRegistry();
-
-            if (typeHandlerRegistry.hasTypeHandler(parameterObject.getClass())) {
-                baseSql = baseSql.replaceFirst("\\?", getRawParam(parameterObject));
-            } else {
-                MetaObject metaObject = configuration.newMetaObject(parameterObject);
-                for (ParameterMapping parameterMapping : parameterMappings) {
-                    String property = parameterMapping.getProperty();
-                    if (metaObject.hasGetter(property)) {
-                        Object value = metaObject.getValue(property);
-                        baseSql = baseSql.replaceFirst("\\?", getRawParam(value));
-                    } else if (boundSql.hasAdditionalParameter(property)) {
-                        Object additionalParameter = boundSql.getAdditionalParameter(property);
-                        baseSql = baseSql.replaceFirst("\\?", getRawParam(additionalParameter));
-                    }
+            MetaObject metaObject = configuration.newMetaObject(parameterObject);
+            for (ParameterMapping parameterMapping : parameterMappings) {
+                String property = parameterMapping.getProperty();
+                if (metaObject.hasGetter(property)) {
+                    Object value = metaObject.getValue(property);
+                    baseSql = baseSql.replaceFirst("\\?", getRawParam(value));
+                } else if (boundSql.hasAdditionalParameter(property)) {
+                    Object additionalParameter = boundSql.getAdditionalParameter(property);
+                    baseSql = baseSql.replaceFirst("\\?", getRawParam(additionalParameter));
                 }
             }
         }
@@ -83,8 +78,10 @@ public class ShowFullSqlInterceptor implements Interceptor {
             return String.valueOf(((IEnum) object).getIndex());
         } else if (object instanceof String) {
             return "'" + object.toString() + "'";
+        } else if (object instanceof Timestamp) {
+            return "'" + DateFormatUtil.buildDateTime((Timestamp) object) + "'";
         } else if (object instanceof Date) {
-            return "'" + object.toString() + "'";
+            return "'" + DateFormatUtil.buildDateTime((Date) object) + "'";
         } else {
             return null;
         }

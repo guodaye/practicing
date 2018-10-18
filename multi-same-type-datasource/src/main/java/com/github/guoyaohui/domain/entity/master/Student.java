@@ -2,6 +2,8 @@ package com.github.guoyaohui.domain.entity.master;
 
 import com.github.guoyaohui.domain.enums.master.LifeStatus;
 import com.github.guoyaohui.domain.enums.master.SexStatus;
+import java.sql.Timestamp;
+import java.util.Date;
 import lombok.Data;
 
 /**
@@ -16,4 +18,8 @@ public class Student {
     private Integer age;
     private SexStatus sex;
     private LifeStatus life;
+    private Date oneDay;
+    private Date twoDay;
+    private Timestamp thirdDay;
 }
+

@@ -3,8 +3,8 @@ package com.github.guoyaohui.service;
 
 import com.github.guoyaohui.MasterSlaveServer;
 import com.github.guoyaohui.domain.entity.master.Student;
-import com.github.guoyaohui.domain.enums.master.SexStatus;
-import java.util.List;
+import java.sql.Timestamp;
+import java.util.Date;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +26,9 @@ public class TestServiceTest {
 
     @Test
     public void getAllStudent() {
-        Student student = testService.selectByIdAndSex(1, SexStatus.MAN);
-        List<Student> allStudent = testService.getAllStudent();
-        Student master = testService.selectByIdAndName(1, "master");
-        int llll = testService.update(1, "llll");
+        Date date = new Date();
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        Student student = testService.selectByIdAndTime(1, date, date, timestamp);
+        System.out.println(student);
     }
 }

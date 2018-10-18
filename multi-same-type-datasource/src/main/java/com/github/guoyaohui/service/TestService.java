@@ -5,6 +5,8 @@ import com.github.guoyaohui.domain.entity.slave.Teacher;
 import com.github.guoyaohui.domain.enums.master.SexStatus;
 import com.github.guoyaohui.mapper.master.StudentMapper;
 import com.github.guoyaohui.mapper.slave.TeacherMapper;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -32,6 +34,10 @@ public class TestService {
 
     public Student selectByIdAndSex(Integer id, SexStatus status) {
         return studentMapper.selectByIdAndSex(id, status);
+    }
+
+    public Student selectByIdAndTime(Integer id, Date oneDay, Date twoDay, Timestamp timestamp) {
+        return studentMapper.selectByIdAndTime(id, oneDay, twoDay, timestamp);
     }
 
     public int update(Integer id, String name) {
