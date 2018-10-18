@@ -1,14 +1,19 @@
 package com.github.guoyaohui.datasource;
 
 import com.github.guoyaohui.constant.DataSourceConstant.DataSourceOne;
+import com.github.guoyaohui.mybatis.interceptor.InterceptorConfiguration;
+import com.github.guoyaohui.mybatis.interceptor.ShowFullSqlInterceptor;
 import javax.sql.DataSource;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -25,6 +30,9 @@ import org.springframework.transaction.PlatformTransactionManager;
     sqlSessionFactoryRef = DataSourceOne.DATASOURCE_SQLSESSION_FACTORY
 )
 public class OneDataSourceConfiguration {
+
+    @Autowired
+    InterceptorConfiguration interceptorConfiguration;
 
     @Primary
     @Bean(DataSourceOne.DATASOURCE)
@@ -49,6 +57,7 @@ public class OneDataSourceConfiguration {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setConfigLocation(new ClassPathResource(DataSourceOne.DATASOURCE_MYBATIS_CONF));
         bean.setDataSource(oneDataSource());
+        bean.setPlugins(interceptorConfiguration.getInterceptorList().toArray(new Interceptor[0]));
         return bean.getObject();
     }
 }

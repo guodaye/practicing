@@ -1,11 +1,14 @@
 package com.github.guoyaohui.datasource;
 
 import com.github.guoyaohui.constant.DataSourceConstant.DataSourceTwo;
+import com.github.guoyaohui.mybatis.interceptor.InterceptorConfiguration;
 import javax.sql.DataSource;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +27,9 @@ import org.springframework.transaction.PlatformTransactionManager;
     sqlSessionFactoryRef = DataSourceTwo.DATASOURCE_SQLSESSION_FACTORY
 )
 public class TwoDataSourceConfiguration {
+
+    @Autowired
+    InterceptorConfiguration interceptorConfiguration;
 
     @Bean(DataSourceTwo.DATASOURCE)
     public DataSource twoDataSource() {
@@ -46,6 +52,7 @@ public class TwoDataSourceConfiguration {
         DataSource dataSource = twoDataSource();
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setConfigLocation(new ClassPathResource(DataSourceTwo.DATASOURCE_MYBATIS_CONF));
+        bean.setPlugins(interceptorConfiguration.getInterceptorList().toArray(new Interceptor[0]));
         bean.setDataSource(dataSource);
         return bean.getObject();
     }

@@ -23,5 +23,6 @@
     </build>
     <modules>
         <module>multi-same-type-datasource</module>
+        <module>common-mybatis-spring</module>
     </modules>
 </project>

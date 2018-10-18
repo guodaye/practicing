@@ -5,10 +5,22 @@
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="age" property="age"/>
+        <result column="sex" property="sex"/>
     </resultMap>
 
     <select id="select" resultMap="fullStudent">
 		select * from student
 	</select>
+
+    <select id="selectByIdAndName" resultMap="fullStudent">
+        select * from student where id =#{id} and name=#{name}
+    </select>
+    <select id="selectByIdAndSex" resultMap="fullStudent">
+        select * from student where id =#{id} and sex=#{sex}
+    </select>
+
+    <update id="update">
+        update student set name=#{name} where id =#{id}
+    </update>
 
 </mapper>

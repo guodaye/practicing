@@ -4,6 +4,7 @@ package com.github.guoyaohui.service;
 import com.github.guoyaohui.MasterSlaveServer;
 import com.github.guoyaohui.domain.entity.master.Student;
 import com.github.guoyaohui.domain.entity.slave.Teacher;
+import com.github.guoyaohui.domain.enums.master.SexStatus;
 import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,9 +27,14 @@ public class TestServiceTest {
 
     @Test
     public void getAllStudent() {
-        List<Student> allStudent = testService.getAllStudent();
-        System.out.println(allStudent);
-        List<Teacher> allTeacher = testService.getAllTeacher();
-        System.out.println(allTeacher);
+        Student student = testService.selectByIdAndSex(1, SexStatus.MAN);
+        System.out.println(student);
+//        List<Student> allStudent = testService.getAllStudent();
+//        System.out.println(allStudent);
+//        Student master = testService.selectByIdAndName(1, "master");
+//        System.out.println(master);
+//
+//        Student llll = testService.update(1, "llll");
+//        System.out.println(llll);
     }
 }
