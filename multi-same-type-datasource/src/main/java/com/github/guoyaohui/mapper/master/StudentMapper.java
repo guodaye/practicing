@@ -17,6 +17,6 @@ public interface StudentMapper {
 
     Student selectByIdAndSex(@Param("id") Integer id, @Param("sex") SexStatus sex);
 
-    Student update(@Param("id") Integer id, @Param("name") String name);
+    int update(@Param("id") Integer id, @Param("name") String name);
 
 }

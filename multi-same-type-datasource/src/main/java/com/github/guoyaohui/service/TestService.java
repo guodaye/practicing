@@ -29,11 +29,12 @@ public class TestService {
     public Student selectByIdAndName(Integer id, String name) {
         return studentMapper.selectByIdAndName(id, name);
     }
+
     public Student selectByIdAndSex(Integer id, SexStatus status) {
         return studentMapper.selectByIdAndSex(id, status);
     }
 
-    public Student update(Integer id, String name) {
+    public int update(Integer id, String name) {
         return studentMapper.update(id, name);
     }
 

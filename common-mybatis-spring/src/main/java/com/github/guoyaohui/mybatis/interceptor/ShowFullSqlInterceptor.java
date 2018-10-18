@@ -1,5 +1,7 @@
 package com.github.guoyaohui.mybatis.interceptor;
 
+import com.github.guoyaohui.mybatis.handler.IEnum;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 import org.apache.ibatis.cache.CacheKey;
@@ -43,7 +45,7 @@ public class ShowFullSqlInterceptor implements Interceptor {
         Object proceed = invocation.proceed();
         MappedStatement mappedStatement = (MappedStatement) invocation.getArgs()[0];
         BoundSql boundSql = mappedStatement.getSqlSource().getBoundSql(invocation.getArgs()[1]);
-        showFullSql(mappedStatement.getConfiguration(), boundSql);
+        System.out.println("mybatis 执行的完整的sql是:【" + showFullSql(mappedStatement.getConfiguration(), boundSql) + "】");
         return proceed;
     }
 
@@ -56,24 +58,36 @@ public class ShowFullSqlInterceptor implements Interceptor {
             TypeHandlerRegistry typeHandlerRegistry = configuration.getTypeHandlerRegistry();
 
             if (typeHandlerRegistry.hasTypeHandler(parameterObject.getClass())) {
-                // 只有一个?
-                baseSql.replaceFirst("\\?", null);
+                baseSql = baseSql.replaceFirst("\\?", getRawParam(parameterObject));
             } else {
                 MetaObject metaObject = configuration.newMetaObject(parameterObject);
                 for (ParameterMapping parameterMapping : parameterMappings) {
                     String property = parameterMapping.getProperty();
                     if (metaObject.hasGetter(property)) {
                         Object value = metaObject.getValue(property);
-                        System.out.println(value);
+                        baseSql = baseSql.replaceFirst("\\?", getRawParam(value));
                     } else if (boundSql.hasAdditionalParameter(property)) {
                         Object additionalParameter = boundSql.getAdditionalParameter(property);
-                        System.out.println(additionalParameter);
+                        baseSql = baseSql.replaceFirst("\\?", getRawParam(additionalParameter));
                     }
                 }
             }
         }
+        return baseSql;
+    }
 
-        return null;
+    private String getRawParam(Object object) {
+        if (object instanceof Number) {
+            return String.valueOf(object);
+        } else if (object instanceof IEnum) {
+            return String.valueOf(((IEnum) object).getIndex());
+        } else if (object instanceof String) {
+            return "'" + object.toString() + "'";
+        } else if (object instanceof Date) {
+            return "'" + object.toString() + "'";
+        } else {
+            return null;
+        }
     }
 
 

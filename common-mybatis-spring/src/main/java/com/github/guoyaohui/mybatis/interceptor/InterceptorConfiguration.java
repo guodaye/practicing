@@ -6,7 +6,6 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import lombok.Data;
 import lombok.Getter;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
@@ -18,7 +17,6 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ConfigurationClassPostProcessor;
 import org.springframework.core.Conventions;
 import org.springframework.core.Ordered;
@@ -67,7 +65,6 @@ public class InterceptorConfiguration implements BeanDefinitionRegistryPostProce
                     interceptorBeanDefinitionNameList.add(beanDenfinitionMap.get(beanDefinition));
                 }
             }
-            System.out.println(interceptorBeanDefinitionNameList);
         }
     }
 
