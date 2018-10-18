@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <description>主从数据源</description>
 
-    <artifactId>master-slave-datasource</artifactId>
+    <artifactId>multi-same-type-datasource</artifactId>
     <dependencyManagement>
         <dependencies>
             <dependency>

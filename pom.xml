@@ -22,6 +22,6 @@
         </plugins>
     </build>
     <modules>
-        <module>master-slave-datasource</module>
+        <module>multi-same-type-datasource</module>
     </modules>
 </project>
