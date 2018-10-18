@@ -3,8 +3,8 @@ package com.github.guoyaohui.service;
 
 import com.github.guoyaohui.MasterSlaveServer;
 import com.github.guoyaohui.domain.entity.master.Student;
-import java.sql.Timestamp;
-import java.util.Date;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +26,11 @@ public class TestServiceTest {
 
     @Test
     public void getAllStudent() {
-        Date date = new Date();
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        Student student = testService.selectByIdAndTime(1, date, date, timestamp);
-        System.out.println(student);
+        List<Student> students = testService.selectIdList(Arrays.asList(1, 2, 3));
+        System.out.println(students);
+//        Date date = new Date();
+//        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+//        Student student = testService.selectByIdAndTime(1, date, date, timestamp);
+//        System.out.println(student);
     }
 }

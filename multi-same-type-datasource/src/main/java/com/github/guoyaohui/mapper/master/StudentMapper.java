@@ -14,6 +14,8 @@ public interface StudentMapper {
 
     List<Student> select();
 
+    List<Student> selectIdList(@Param("idList") List<Integer> idList);
+
     Student selectByIdAndName(@Param("id") Integer id, @Param("name") String name);
 
     Student selectByIdAndSex(@Param("id") Integer id, @Param("sex") SexStatus sex);

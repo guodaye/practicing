@@ -28,6 +28,10 @@ public class TestService {
         return studentMapper.select();
     }
 
+    public List<Student> selectIdList(List<Integer> idList) {
+        return studentMapper.selectIdList(idList);
+    }
+
     public Student selectByIdAndName(Integer id, String name) {
         return studentMapper.selectByIdAndName(id, name);
     }
