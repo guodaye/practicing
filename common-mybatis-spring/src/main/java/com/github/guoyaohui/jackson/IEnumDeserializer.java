@@ -13,11 +13,11 @@ import java.io.IOException;
  * @author 郭垚辉
  * @date 2018/10/18
  */
-public class EnumDeserializer<E extends Enum<E> & IEnum> extends StdDeserializer<E> {
+public class IEnumDeserializer<E extends Enum<E> & IEnum> extends StdDeserializer<E> {
 
     private Class<E> clazz;
 
-    protected EnumDeserializer(Class<E> clazz) {
+    protected IEnumDeserializer(Class<E> clazz) {
         super(clazz);
         this.clazz = clazz;
     }

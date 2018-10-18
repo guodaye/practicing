@@ -10,9 +10,13 @@ import java.io.IOException;
  * @author 郭垚辉
  * @date 2018/10/18
  */
-public class EnumSerializer<E extends Enum<E> & IEnum> extends StdSerializer<E> {
+public class IEnumSerializer<E extends Enum<E> & IEnum> extends StdSerializer<E> {
 
-    protected EnumSerializer(Class<E> t) {
+    protected IEnumSerializer() {
+        this(null);
+    }
+
+    public IEnumSerializer(Class<E> t) {
         super(t);
     }
 
@@ -25,4 +29,5 @@ public class EnumSerializer<E extends Enum<E> & IEnum> extends StdSerializer<E> 
         gen.writeString(value.getDescription());
         gen.writeEndObject();
     }
+
 }

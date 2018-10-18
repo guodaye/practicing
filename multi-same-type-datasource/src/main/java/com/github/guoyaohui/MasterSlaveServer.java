@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Import;
 @SpringBootApplication
 @EnableAspectJAutoProxy
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
-//@Import(ShowFullSqlInterceptor.class)
 public class MasterSlaveServer {
 
     public static void main(String[] args) {
