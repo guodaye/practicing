@@ -22,7 +22,6 @@ public class EnumUtil {
     public static <E extends Enum<E> & IEnum> E getEnum(Class<E> clazz, int index) {
         E[] constants = clazz.getEnumConstants();
         for (E e : constants) {
-
             if (e.getIndex() == index) {
                 return e;
             }
@@ -43,6 +42,16 @@ public class EnumUtil {
         for (E e : constants) {
             if (e.name().equals(name)) {
                 return e;
+            }
+        }
+        return null;
+    }
+
+    public static <E extends Enum<E> & IEnum> E getEnum(Class<E> clazz, int index, String name) {
+        E[] constants = clazz.getEnumConstants();
+        for (E e : constants) {
+            if (e.getIndex() == index) {
+                return e.name().equals(name) ? e : null;
             }
         }
         return null;

@@ -6,6 +6,7 @@
         <result column="name" property="name"/>
         <result column="age" property="age"/>
         <result column="sex" property="sex"/>
+        <result column="life" property="life"/>
     </resultMap>
 
     <select id="select" resultMap="fullStudent">

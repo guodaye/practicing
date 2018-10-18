@@ -14,6 +14,7 @@
 
     <typeHandlers>
         <typeHandler handler="com.github.guoyaohui.mybatis.handler.EnumTypeHandler" javaType="SexStatus"/>
+        <typeHandler handler="com.github.guoyaohui.mybatis.handler.EnumTypeHandler" javaType="LifeStatus"/>
     </typeHandlers>
 
     <mappers>

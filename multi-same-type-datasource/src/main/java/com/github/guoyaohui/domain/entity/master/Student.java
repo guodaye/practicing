@@ -1,5 +1,6 @@
 package com.github.guoyaohui.domain.entity.master;
 
+import com.github.guoyaohui.domain.enums.master.LifeStatus;
 import com.github.guoyaohui.domain.enums.master.SexStatus;
 import lombok.Data;
 
@@ -14,4 +15,5 @@ public class Student {
     private String name;
     private Integer age;
     private SexStatus sex;
+    private LifeStatus life;
 }

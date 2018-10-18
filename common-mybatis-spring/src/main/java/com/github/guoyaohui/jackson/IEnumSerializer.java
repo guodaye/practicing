@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 public class IEnumSerializer<E extends Enum<E> & IEnum> extends StdSerializer<E> {
 
-    protected IEnumSerializer() {
+    public IEnumSerializer() {
         this(null);
     }
 
@@ -23,9 +23,11 @@ public class IEnumSerializer<E extends Enum<E> & IEnum> extends StdSerializer<E>
     @Override
     public void serialize(E value, JsonGenerator gen, SerializerProvider provider) throws IOException {
         gen.writeStartObject();
+        gen.writeFieldName("name");
+        gen.writeString(value.name());
         gen.writeFieldName("index");
         gen.writeNumber(value.getIndex());
-        gen.writeFieldName("name");
+        gen.writeFieldName("description");
         gen.writeString(value.getDescription());
         gen.writeEndObject();
     }
