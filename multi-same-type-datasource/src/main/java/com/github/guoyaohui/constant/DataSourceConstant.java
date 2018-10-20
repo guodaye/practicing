@@ -54,7 +54,7 @@ public class DataSourceConstant {
         public static final String DATASOURCE_DRIVER_NAME = "org.h2.Driver";
         // 使用IDEA进行编程时，需要使用以下的配置。对于默认的IDEA配置来说，./ 不是 classpath，而是当前的module的路径
         public static final String DATASOURCE_URL = "jdbc:h2:file:./target/classes/com/github/guoyaohui/datasource/h2/test";
-        // 使用ECLIPSE进行编程时或者是打包之后的话，则使用该配置。
+        // 使用ECLIPSE进行编程时或者是打包之后的话，则./的路径，就是classpath
         // public static final String DATASOURCE_URL = "jdbc:h2:file:./com/github/guoyaohui/datasource/h2/test";
     }
 }
