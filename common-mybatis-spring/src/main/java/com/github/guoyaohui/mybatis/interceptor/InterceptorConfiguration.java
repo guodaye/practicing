@@ -1,5 +1,6 @@
 package com.github.guoyaohui.mybatis.interceptor;
 
+import com.github.guoyaohui.annotation.EnableMybatisInteceptor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -17,17 +18,21 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ConfigurationClassPostProcessor;
 import org.springframework.core.Conventions;
 import org.springframework.core.Ordered;
 import org.springframework.core.type.AnnotationMetadata;
-import org.springframework.stereotype.Component;
 
 /**
+ * spring中添加拦截器的顺序比mybatis-conf.xml中定义的拦截器的优先级要更高，推荐使用该配置进行拦截器配置
+ *
  * @author 郭垚辉
  * @date 2018/10/18
  */
-@Component
+@Configuration
+@ConditionalOnBean(annotation = EnableMybatisInteceptor.class)
 public class InterceptorConfiguration implements BeanDefinitionRegistryPostProcessor {
 
     private List<String> interceptorBeanDefinitionNameList;

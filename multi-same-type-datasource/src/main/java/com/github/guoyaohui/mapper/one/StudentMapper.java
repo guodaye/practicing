@@ -1,8 +1,8 @@
 package com.github.guoyaohui.mapper.one;
 
+import com.github.guoyaohui.annotation.SwitchDataSourceEnum;
 import com.github.guoyaohui.domain.entity.one.Student;
 import com.github.guoyaohui.domain.enums.SexStatusEnum;
-import com.github.guoyaohui.enums.SwitchDataSourceEnum;
 import java.util.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;

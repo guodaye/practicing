@@ -1,13 +1,12 @@
 package com.github.guoyaohui.datasource.router;
 
+import com.github.guoyaohui.common.BeanInitUtil;
 import com.github.guoyaohui.constant.DataSourceConstant.DataSourceOne;
 import com.github.guoyaohui.datasource.DynamicRoutingDataSource;
 import com.github.guoyaohui.domain.enums.OneDataSourceEnum;
-import com.github.guoyaohui.mybatis.interceptor.InterceptorConfiguration;
 import java.util.HashMap;
 import javax.sql.DataSource;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -34,10 +33,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 public class OneDataSourceDynamicConfiguration {
 
     @Autowired
-    private InterceptorConfiguration interceptorConfiguration;
-    @Autowired
     private BeanFactory beanFactory;
-
 
     @Bean(DataSourceOne.DATASOURCE_MASTER)
     public DataSource oneMasterDataSource() {
@@ -92,11 +88,11 @@ public class OneDataSourceDynamicConfiguration {
 
     @Primary
     @Bean(DataSourceOne.DATASOURCE_SQLSESSION_FACTORY)
-    public SqlSessionFactory oneSqlSessionFactory() throws Exception {
+    public SqlSessionFactory oneSqlSessionFactory(BeanFactory beanFactory) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setConfigLocation(new ClassPathResource(DataSourceOne.DATASOURCE_MYBATIS_CONF));
         bean.setDataSource(dynamicDataSource());
-        bean.setPlugins(interceptorConfiguration.getInterceptorList().toArray(new Interceptor[0]));
+        BeanInitUtil.setPlugins(bean, beanFactory);
         return bean.getObject();
     }
 }

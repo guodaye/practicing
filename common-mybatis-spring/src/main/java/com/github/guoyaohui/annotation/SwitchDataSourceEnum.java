@@ -1,4 +1,4 @@
-package com.github.guoyaohui.enums;
+package com.github.guoyaohui.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

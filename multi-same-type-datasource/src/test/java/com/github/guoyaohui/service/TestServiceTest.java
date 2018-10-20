@@ -28,5 +28,6 @@ public class TestServiceTest {
     public void getAllStudent() {
         List<Student> students = testService.selectIdList(Arrays.asList(1, 2, 3));
         System.out.println(students);
+        System.out.println(testService.getAllTeacher());
     }
 }

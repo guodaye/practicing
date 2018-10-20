@@ -20,14 +20,12 @@ import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
-import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 /**
  * @author 郭垚辉
  * @date 2018/10/18
  */
-@Component
 @Intercepts({
     @Signature(type = Executor.class, method = "update",
         args = {MappedStatement.class, Object.class}),

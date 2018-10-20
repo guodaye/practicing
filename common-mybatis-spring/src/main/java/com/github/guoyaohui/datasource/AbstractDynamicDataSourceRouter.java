@@ -1,7 +1,7 @@
 package com.github.guoyaohui.datasource;
 
+import com.github.guoyaohui.annotation.SwitchDataSourceEnum;
 import com.github.guoyaohui.common.EnumUtil;
-import com.github.guoyaohui.enums.SwitchDataSourceEnum;
 import com.github.guoyaohui.mybatis.handler.IEnum;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -69,9 +69,9 @@ public class AbstractDynamicDataSourceRouter {
     /**
      * 当且仅当指定的数据源存在的时候，我们会使用指定的数据元，其他情况，都会直接使用主库的数据源
      *
-     * 1. 使用{@link com.github.guoyaohui.enums.SwitchDataSourceEnum#usingName()}
-     * 2. 使用{@link com.github.guoyaohui.enums.SwitchDataSourceEnum#value()}
-     * 3. 使用{@link com.github.guoyaohui.enums.SwitchDataSourceEnum#usingIndex()}
+     * 1. 使用{@link com.github.guoyaohui.annotation.SwitchDataSourceEnum#usingName()}
+     * 2. 使用{@link com.github.guoyaohui.annotation.SwitchDataSourceEnum#value()}
+     * 3. 使用{@link com.github.guoyaohui.annotation.SwitchDataSourceEnum#usingIndex()}
      * 4. 使用默认的数据源
      */
     protected String getDataSourceEnum(JoinPoint point) {
