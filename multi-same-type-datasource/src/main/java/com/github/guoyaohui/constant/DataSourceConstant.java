@@ -7,7 +7,7 @@ package com.github.guoyaohui.constant;
 public class DataSourceConstant {
 
     /**
-     * 数据库1
+     * mysql-数据库1
      */
     public static final class DataSourceOne {
 
@@ -24,7 +24,7 @@ public class DataSourceConstant {
 
 
     /**
-     * 数据库2
+     * mysql-数据库2
      */
     public static final class DataSourceTwo {
 
@@ -37,5 +37,24 @@ public class DataSourceConstant {
         public static final String DATASOURCE_USERNAME = "root";
         public static final String DATASOURCE_DRIVER_NAME = "com.mysql.jdbc.Driver";
         public static final String DATASOURCE_URL = "jdbc:mysql://193.112.66.220:60106/slave?useSSL=false&autoReconnect=true&characterEncoding=UTF-8";
+    }
+
+    /**
+     * h2-数据库
+     */
+    public static final class DataSourceH2 {
+
+        public static final String BASE_PACKAGES = "com.github.guoyaohui.mapper.h2";
+        public static final String DATASOURCE = "h2DataSource";
+        public static final String DATASOURCE_PLATFORM_TRANSACTION_MANAGER = "h2PlatformTransactionManager";
+        public static final String DATASOURCE_SQLSESSION_FACTORY = "H2_SQL_SESSION_FACTORY";
+        public static final String DATASOURCE_MYBATIS_CONF = "com/github/guoyaohui/datasource/h2/h2-mybatis-config.xml";
+        public static final String DATASOURCE_PASSWORD = "123456";
+        public static final String DATASOURCE_USERNAME = "sa";
+        public static final String DATASOURCE_DRIVER_NAME = "org.h2.Driver";
+        // 使用IDEA进行编程时，需要使用以下的配置。对于默认的IDEA配置来说，./ 不是 classpath，而是当前的module的路径
+        public static final String DATASOURCE_URL = "jdbc:h2:file:./target/classes/com/github/guoyaohui/datasource/h2/test";
+        // 使用ECLIPSE进行编程时或者是打包之后的话，则使用该配置。
+        // public static final String DATASOURCE_URL = "jdbc:h2:file:./com/github/guoyaohui/datasource/h2/test";
     }
 }

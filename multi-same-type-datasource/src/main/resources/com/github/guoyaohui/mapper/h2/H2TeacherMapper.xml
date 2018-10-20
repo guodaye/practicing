@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.guoyaohui.mapper.h2.H2TeacherMapper">
+    <resultMap id="fullTeacher" type="Teacher">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="email" property="email"/>
+    </resultMap>
+
+    <select id="select" resultMap="fullTeacher">
+		select * from teacher
+	</select>
+
+</mapper>

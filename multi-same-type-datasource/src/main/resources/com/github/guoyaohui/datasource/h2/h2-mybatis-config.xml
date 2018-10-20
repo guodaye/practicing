@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <setting name="logImpl" value="SLF4J"/>
+    </settings>
+
+    <typeAliases>
+        <package name="com.github.guoyaohui.domain.entity.master"/>
+        <package name="com.github.guoyaohui.domain.entity.slave"/>
+        <package name="com.github.guoyaohui.domain.enums.master"/>
+    </typeAliases>
+
+    <typeHandlers>
+        <typeHandler handler="com.github.guoyaohui.mybatis.handler.EnumTypeHandler" javaType="SexStatus"/>
+        <typeHandler handler="com.github.guoyaohui.mybatis.handler.EnumTypeHandler" javaType="LifeStatus"/>
+    </typeHandlers>
+
+    <mappers>
+        <mapper resource="com/github/guoyaohui/mapper/h2/H2StudentMapper.xml"/>
+    </mappers>
+
+</configuration>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.guoyaohui.mapper.h2.H2StudentMapper">
+    <resultMap id="fullStudent" type="student">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="sex" property="sex"/>
+    </resultMap>
+
+    <select id="select" resultMap="fullStudent">
+		select * from student
+	</select>
+    <select id="selectIdList" resultMap="fullStudent">
+        select * from student where id in
+        <foreach close=")" collection="idList" item="item" open="(" separator=",">#{item}</foreach>
+    </select>
+
+    <select id="selectByIdAndName" resultMap="fullStudent">
+        select * from student where id =#{id} and name=#{name}
+    </select>
+    <select id="selectByIdAndTime" resultMap="fullStudent">
+        select * from student where id =#{id} and oneDay=#{oneDay} and twoDay=#{twoDay} and thirdDay=#{thirdDay}
+    </select>
+    <select id="selectByIdAndSex" resultMap="fullStudent">
+        select * from student where id =#{id} and sex=#{sex}
+    </select>
+
+    <update id="update">
+        update student set name=#{name} where id =#{id}
+    </update>
+
+</mapper>
