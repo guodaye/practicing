@@ -1,7 +1,7 @@
-package com.github.guoyaohui.mapper.master;
+package com.github.guoyaohui.mapper.one;
 
-import com.github.guoyaohui.domain.entity.master.Student;
-import com.github.guoyaohui.domain.enums.master.SexStatus;
+import com.github.guoyaohui.domain.entity.one.Student;
+import com.github.guoyaohui.domain.enums.SexStatus;
 import java.util.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;

@@ -1,10 +1,10 @@
 package com.github.guoyaohui.service;
 
-import com.github.guoyaohui.domain.entity.master.Student;
-import com.github.guoyaohui.domain.entity.slave.Teacher;
-import com.github.guoyaohui.domain.enums.master.SexStatus;
-import com.github.guoyaohui.mapper.master.StudentMapper;
-import com.github.guoyaohui.mapper.slave.TeacherMapper;
+import com.github.guoyaohui.domain.entity.one.Student;
+import com.github.guoyaohui.domain.entity.two.Teacher;
+import com.github.guoyaohui.domain.enums.SexStatus;
+import com.github.guoyaohui.mapper.one.StudentMapper;
+import com.github.guoyaohui.mapper.two.TeacherMapper;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;

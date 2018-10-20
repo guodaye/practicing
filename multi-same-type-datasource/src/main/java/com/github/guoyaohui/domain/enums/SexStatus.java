@@ -1,22 +1,20 @@
-package com.github.guoyaohui.domain.enums.master;
+package com.github.guoyaohui.domain.enums;
 
 import com.github.guoyaohui.mybatis.handler.IEnum;
 import lombok.Getter;
 
 /**
- * 生命状态
- *
  * @author 郭垚辉
  * @date 2018/10/18
  */
 @Getter
-public enum LifeStatus implements IEnum {
-    ONE(0, "一年级"), TWO(1,"二年级");
+public enum SexStatus implements IEnum {
+    MAN(0, "男"), WOMAN(1, "女");
 
     private int index;
     private String description;
 
-    LifeStatus(int index, String description) {
+    SexStatus(int index, String description) {
         this.index = index;
         this.description = description;
     }

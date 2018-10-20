@@ -1,7 +1,7 @@
 package com.github.guoyaohui.service;
 
 import com.github.guoyaohui.MasterSlaveServer;
-import com.github.guoyaohui.domain.entity.master.Student;
+import com.github.guoyaohui.domain.entity.one.Student;
 import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;

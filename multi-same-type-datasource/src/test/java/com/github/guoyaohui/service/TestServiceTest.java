@@ -2,7 +2,7 @@ package com.github.guoyaohui.service;
 
 
 import com.github.guoyaohui.MasterSlaveServer;
-import com.github.guoyaohui.domain.entity.master.Student;
+import com.github.guoyaohui.domain.entity.one.Student;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.Test;
@@ -28,9 +28,5 @@ public class TestServiceTest {
     public void getAllStudent() {
         List<Student> students = testService.selectIdList(Arrays.asList(1, 2, 3));
         System.out.println(students);
-//        Date date = new Date();
-//        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-//        Student student = testService.selectByIdAndTime(1, date, date, timestamp);
-//        System.out.println(student);
     }
 }

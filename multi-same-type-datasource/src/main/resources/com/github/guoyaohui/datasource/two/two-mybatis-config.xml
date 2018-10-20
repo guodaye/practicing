@@ -8,12 +8,13 @@
     </settings>
 
     <typeAliases>
-        <package name="com.github.guoyaohui.domain.entity.slave"/>
+        <package name="com.github.guoyaohui.domain.entity.two"/>
+        <package name="com.github.guoyaohui.domain.enums"/>
     </typeAliases>
 
 
     <mappers>
-        <mapper resource="com/github/guoyaohui/mapper/slave/TeacherMapper.xml"/>
+        <mapper resource="com/github/guoyaohui/mapper/two/TeacherMapper.xml"/>
     </mappers>
 
 </configuration>

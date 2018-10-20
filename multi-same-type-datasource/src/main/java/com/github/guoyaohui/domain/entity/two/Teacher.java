@@ -1,4 +1,4 @@
-package com.github.guoyaohui.domain.entity.slave;
+package com.github.guoyaohui.domain.entity.two;
 
 import lombok.Data;
 

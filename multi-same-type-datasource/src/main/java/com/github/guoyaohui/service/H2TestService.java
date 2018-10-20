@@ -1,7 +1,7 @@
 package com.github.guoyaohui.service;
 
-import com.github.guoyaohui.domain.entity.master.Student;
-import com.github.guoyaohui.domain.entity.slave.Teacher;
+import com.github.guoyaohui.domain.entity.one.Student;
+import com.github.guoyaohui.domain.entity.two.Teacher;
 import com.github.guoyaohui.mapper.h2.H2StudentMapper;
 import com.github.guoyaohui.mapper.h2.H2TeacherMapper;
 import java.util.List;

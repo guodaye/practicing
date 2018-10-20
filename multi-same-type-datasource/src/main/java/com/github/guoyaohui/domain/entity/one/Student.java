@@ -1,7 +1,7 @@
-package com.github.guoyaohui.domain.entity.master;
+package com.github.guoyaohui.domain.entity.one;
 
-import com.github.guoyaohui.domain.enums.master.LifeStatus;
-import com.github.guoyaohui.domain.enums.master.SexStatus;
+import com.github.guoyaohui.domain.enums.LifeStatus;
+import com.github.guoyaohui.domain.enums.SexStatus;
 import java.sql.Timestamp;
 import java.util.Date;
 import lombok.Data;

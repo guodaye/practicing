@@ -1,7 +1,7 @@
 package com.github.guoyaohui.resource;
 
-import com.github.guoyaohui.domain.entity.master.Student;
-import com.github.guoyaohui.domain.enums.master.SexStatus;
+import com.github.guoyaohui.domain.entity.one.Student;
+import com.github.guoyaohui.domain.enums.SexStatus;
 import com.github.guoyaohui.http.JsonResp;
 import com.github.guoyaohui.service.TestService;
 import org.springframework.beans.BeansException;

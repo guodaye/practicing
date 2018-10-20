@@ -11,15 +11,15 @@ public class DataSourceConstant {
      */
     public static final class DataSourceOne {
 
-        public static final String BASE_PACKAGES = "com.github.guoyaohui.mapper.master";
-        public static final String DATASOURCE = "masterDataSource";
-        public static final String DATASOURCE_PLATFORM_TRANSACTION_MANAGER = "masterPlatformTransactionManager";
-        public static final String DATASOURCE_SQLSESSION_FACTORY = "MASTER_SQL_SESSION_FACTORY";
-        public static final String DATASOURCE_MYBATIS_CONF = "com/github/guoyaohui/datasource/master/master-mybatis-config.xml";
+        public static final String BASE_PACKAGES = "com.github.guoyaohui.mapper.one";
+        public static final String DATASOURCE = "oneDataSource";
+        public static final String DATASOURCE_PLATFORM_TRANSACTION_MANAGER = "onePlatformTransactionManager";
+        public static final String DATASOURCE_SQLSESSION_FACTORY = "ONE_SQL_SESSION_FACTORY";
+        public static final String DATASOURCE_MYBATIS_CONF = "com/github/guoyaohui/datasource/one/one-mybatis-config.xml";
         public static final String DATASOURCE_PASSWORD = "123456";
         public static final String DATASOURCE_USERNAME = "root";
         public static final String DATASOURCE_DRIVER_NAME = "com.mysql.jdbc.Driver";
-        public static final String DATASOURCE_URL = "jdbc:mysql://193.112.66.220:60106/master?useSSL=false&autoReconnect=true&characterEncoding=UTF-8";
+        public static final String DATASOURCE_URL = "jdbc:mysql://193.112.66.220:60106/one?useSSL=false&autoReconnect=true&characterEncoding=UTF-8";
     }
 
 
@@ -28,15 +28,15 @@ public class DataSourceConstant {
      */
     public static final class DataSourceTwo {
 
-        public static final String BASE_PACKAGES = "com.github.guoyaohui.mapper.slave";
-        public static final String DATASOURCE = "slaveDataSource";
-        public static final String DATASOURCE_PLATFORM_TRANSACTION_MANAGER = "slavePlatformTransactionManager";
-        public static final String DATASOURCE_SQLSESSION_FACTORY = "SLAVE_SQL_SESSION_FACTORY";
-        public static final String DATASOURCE_MYBATIS_CONF = "com/github/guoyaohui/datasource/slave/slave-mybatis-config.xml";
+        public static final String BASE_PACKAGES = "com.github.guoyaohui.mapper.two";
+        public static final String DATASOURCE = "twoDataSource";
+        public static final String DATASOURCE_PLATFORM_TRANSACTION_MANAGER = "twoPlatformTransactionManager";
+        public static final String DATASOURCE_SQLSESSION_FACTORY = "two_SQL_SESSION_FACTORY";
+        public static final String DATASOURCE_MYBATIS_CONF = "com/github/guoyaohui/datasource/two/two-mybatis-config.xml";
         public static final String DATASOURCE_PASSWORD = "123456";
         public static final String DATASOURCE_USERNAME = "root";
         public static final String DATASOURCE_DRIVER_NAME = "com.mysql.jdbc.Driver";
-        public static final String DATASOURCE_URL = "jdbc:mysql://193.112.66.220:60106/slave?useSSL=false&autoReconnect=true&characterEncoding=UTF-8";
+        public static final String DATASOURCE_URL = "jdbc:mysql://193.112.66.220:60106/two?useSSL=false&autoReconnect=true&characterEncoding=UTF-8";
     }
 
     /**

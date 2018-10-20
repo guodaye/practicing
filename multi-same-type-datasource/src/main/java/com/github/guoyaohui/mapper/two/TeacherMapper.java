@@ -1,6 +1,6 @@
-package com.github.guoyaohui.mapper.slave;
+package com.github.guoyaohui.mapper.two;
 
-import com.github.guoyaohui.domain.entity.slave.Teacher;
+import com.github.guoyaohui.domain.entity.two.Teacher;
 import java.util.List;
 
 /**

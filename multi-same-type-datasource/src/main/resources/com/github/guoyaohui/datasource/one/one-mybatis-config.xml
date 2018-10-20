@@ -8,8 +8,8 @@
     </settings>
 
     <typeAliases>
-        <package name="com.github.guoyaohui.domain.entity.master"/>
-        <package name="com.github.guoyaohui.domain.enums.master"/>
+        <package name="com.github.guoyaohui.domain.entity.one"/>
+        <package name="com.github.guoyaohui.domain.enums"/>
     </typeAliases>
 
     <typeHandlers>
@@ -18,7 +18,7 @@
     </typeHandlers>
 
     <mappers>
-        <mapper resource="com/github/guoyaohui/mapper/master/StudentMapper.xml"/>
+        <mapper resource="com/github/guoyaohui/mapper/one/StudentMapper.xml"/>
     </mappers>
 
 </configuration>
