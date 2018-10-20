@@ -1,7 +1,7 @@
 package com.github.guoyaohui.resource;
 
 import com.github.guoyaohui.domain.entity.one.Student;
-import com.github.guoyaohui.domain.enums.SexStatus;
+import com.github.guoyaohui.domain.enums.SexStatusEnum;
 import com.github.guoyaohui.http.JsonResp;
 import com.github.guoyaohui.service.TestService;
 import org.springframework.beans.BeansException;
@@ -31,14 +31,14 @@ public class IndexResource implements BeanFactoryAware {
 
     @GetMapping("/index")
     public JsonResp index() {
-        Student student = testService.selectByIdAndSex(1, SexStatus.MAN);
+        Student student = testService.selectByIdAndSex(1, SexStatusEnum.MAN);
         return JsonResp.success(student);
     }
 
     @PostMapping("/post")
     public JsonResp post(@RequestBody Student student) {
         System.out.println(student);
-        student.setSex(SexStatus.WOMAN);
+        student.setSex(SexStatusEnum.WOMAN);
         return JsonResp.success(student);
     }
 

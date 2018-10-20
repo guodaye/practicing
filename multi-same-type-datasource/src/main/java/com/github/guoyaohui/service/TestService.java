@@ -2,7 +2,7 @@ package com.github.guoyaohui.service;
 
 import com.github.guoyaohui.domain.entity.one.Student;
 import com.github.guoyaohui.domain.entity.two.Teacher;
-import com.github.guoyaohui.domain.enums.SexStatus;
+import com.github.guoyaohui.domain.enums.SexStatusEnum;
 import com.github.guoyaohui.mapper.one.StudentMapper;
 import com.github.guoyaohui.mapper.two.TeacherMapper;
 import java.sql.Timestamp;
@@ -36,7 +36,7 @@ public class TestService {
         return studentMapper.selectByIdAndName(id, name);
     }
 
-    public Student selectByIdAndSex(Integer id, SexStatus status) {
+    public Student selectByIdAndSex(Integer id, SexStatusEnum status) {
         return studentMapper.selectByIdAndSex(id, status);
     }
 

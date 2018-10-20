@@ -57,4 +57,13 @@ public class EnumUtil {
         return null;
     }
 
+    public static IEnum getIEnum(Class<? extends IEnum> dataSourceEnum, int index) {
+        IEnum[] constants = dataSourceEnum.getEnumConstants();
+        for (IEnum e : constants) {
+            if (e.getIndex() == index) {
+                return e;
+            }
+        }
+        return null;
+    }
 }

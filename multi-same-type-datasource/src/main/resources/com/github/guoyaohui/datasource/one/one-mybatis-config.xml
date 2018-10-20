@@ -8,13 +8,13 @@
     </settings>
 
     <typeAliases>
-        <package name="com.github.guoyaohui.domain.entity.one"/>
+        <package name="com.github.guoyaohui.domain.entity"/>
         <package name="com.github.guoyaohui.domain.enums"/>
     </typeAliases>
 
     <typeHandlers>
-        <typeHandler handler="com.github.guoyaohui.mybatis.handler.EnumTypeHandler" javaType="SexStatus"/>
-        <typeHandler handler="com.github.guoyaohui.mybatis.handler.EnumTypeHandler" javaType="LifeStatus"/>
+        <typeHandler handler="com.github.guoyaohui.mybatis.handler.EnumTypeHandler" javaType="SexStatusEnum"/>
+        <typeHandler handler="com.github.guoyaohui.mybatis.handler.EnumTypeHandler" javaType="LifeStatusEnum"/>
     </typeHandlers>
 
     <mappers>

@@ -12,14 +12,16 @@ public class DataSourceConstant {
     public static final class DataSourceOne {
 
         public static final String BASE_PACKAGES = "com.github.guoyaohui.mapper.one";
-        public static final String DATASOURCE = "oneDataSource";
+        public static final String DATASOURCE_MASTER = "oneMasterDataSource";
+        public static final String DATASOURCE_SLAVE = "oneSlaveDataSource";
         public static final String DATASOURCE_PLATFORM_TRANSACTION_MANAGER = "onePlatformTransactionManager";
         public static final String DATASOURCE_SQLSESSION_FACTORY = "ONE_SQL_SESSION_FACTORY";
         public static final String DATASOURCE_MYBATIS_CONF = "com/github/guoyaohui/datasource/one/one-mybatis-config.xml";
         public static final String DATASOURCE_PASSWORD = "123456";
         public static final String DATASOURCE_USERNAME = "root";
         public static final String DATASOURCE_DRIVER_NAME = "com.mysql.jdbc.Driver";
-        public static final String DATASOURCE_URL = "jdbc:mysql://193.112.66.220:60106/one?useSSL=false&autoReconnect=true&characterEncoding=UTF-8";
+        public static final String DATASOURCE_URL_MASTER = "jdbc:mysql://193.112.66.220:60106/one?useSSL=false&autoReconnect=true&characterEncoding=UTF-8";
+        public static final String DATASOURCE_URL_SLAVE = "jdbc:mysql://193.112.66.220:60106/master?useSSL=false&autoReconnect=true&characterEncoding=UTF-8";
     }
 
 
