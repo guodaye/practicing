@@ -10,12 +10,14 @@ import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author 郭垚辉
  * @date 2018/10/17
  */
 @Component
+@Transactional
 public class TestService {
 
     @Autowired
@@ -28,10 +30,15 @@ public class TestService {
         return studentMapper.select();
     }
 
+    @Transactional
     public List<Student> selectIdList(List<Integer> idList) {
-        return studentMapper.selectIdList(idList);
+        List<Student> students = studentMapper.selectIdList(idList);
+        List<Teacher> select = teacherMapper.select();
+        System.out.println(select);
+        return students;
     }
 
+    @Transactional
     public Student selectByIdAndName(Integer id, String name) {
         return studentMapper.selectByIdAndName(id, name);
     }
