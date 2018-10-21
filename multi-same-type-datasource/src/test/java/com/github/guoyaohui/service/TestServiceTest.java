@@ -26,7 +26,8 @@ public class TestServiceTest {
 
     @Test
     public void getAllStudent() {
-        List<Student> students = testService.selectIdList(Arrays.asList(1, 2, 3));
+        List<Integer> integers = Arrays.asList(1, 2, 3);
+        List<Student> students = testService.selectIdList(integers);
         System.out.println(students);
     }
 }

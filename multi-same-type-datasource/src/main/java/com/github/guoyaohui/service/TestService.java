@@ -17,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @date 2018/10/17
  */
 @Component
-@Transactional
 public class TestService {
 
     @Autowired
@@ -38,7 +37,7 @@ public class TestService {
         return students;
     }
 
-    @Transactional
+    //    @Transactional
     public Student selectByIdAndName(Integer id, String name) {
         return studentMapper.selectByIdAndName(id, name);
     }
