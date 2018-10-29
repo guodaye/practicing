@@ -4,8 +4,8 @@ import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import lombok.Data;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
@@ -18,7 +18,7 @@ import org.apache.ibatis.type.JdbcType;
 public class EnumTypeHandler<E extends Enum<E> & IEnum> extends BaseTypeHandler<E> {
 
     private Class<E> clazz;
-    private Map<Integer, E> enumMap = new ConcurrentHashMap<>();
+    private Map<Integer, E> enumMap = new HashMap<>();
 
     public EnumTypeHandler(Class<E> clazz) {
         this.clazz = clazz;
